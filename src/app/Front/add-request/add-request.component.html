@@ -1,0 +1,126 @@
+
+<app-navfront></app-navfront>
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/finance.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center">
+
+    <h2>Request</h2>
+    <ol>
+      <li><a href="index.html" [routerLink]="['/front-home']">Home</a></li>
+      <li><a href="index.html" [routerLink]="['/offer']">Offer</a><br></li>
+      <li><a href="index.html" [routerLink]="['/show-list']">List Of Request</a></li>
+
+
+    </ol>
+
+  </div>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+
+    <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+
+      <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+
+        <li data-filter=".filter-product"><h1>Enter you Data</h1></li>
+
+      </ul><!-- End Portfolio Filters -->
+<div style="text-align: center">
+  <h1>{{message}}</h1>
+</div>
+
+<div class="container" id="add-req">
+  <div class="row">
+    <div class="col-md-6">
+      <form #form="ngForm">
+        <fieldset>
+          <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+          <div class="form-group">
+            <label for="Name"><span class="req">* </span> request date: <small>This will be your request date</small> </label>
+            <input  type="text" name="date"[(ngModel)]="request.request_date"  id="name" required minlength="3" [maxLength]="28" #date="ngModel"
+                   class="form-control phone"  placeholder="Enter your request date..." />
+            <div *ngIf="date.touched &&  date.invalid"></div>
+            <div class="alert alert-danger" *ngIf="date.errors?.['required']">date is rquired</div>
+            <div class="alert alert-danger" *ngIf="date.errors?.['minlength']">date must have at 3 char</div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="min"><span class="req">* </span> Amount Request: </label>
+            <input class="form-control" type="text" [(ngModel)]="request.amount_req" name="min" id="min" required minlength="4" [maxLength]="9" #min="ngModel"
+                   placeholder="Enter your Amount Request" />
+            <div *ngIf="min.touched &&  min.invalid"></div>
+            <div class="alert alert-danger" *ngIf="min.errors?.['required']">amount is rquired</div>
+            <div class="alert alert-danger" *ngIf="min.errors?.['minlength']">amount must have at 7 char</div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="rate"><span class="req">* </span> Description: </label>
+            <input class="form-control" type="text" [(ngModel)]="request.description" name="rate" id="rate" required minlength="8" [maxLength]="30" #rate="ngModel"
+                   placeholder="Enter your Description " />
+            <div *ngIf="rate.touched &&  rate.invalid"></div>
+            <div class="alert alert-danger" *ngIf="rate.errors?.['required']">Description is rquired</div>
+            <div class="alert alert-danger" *ngIf="rate.errors?.['minlength']">Description must have at 8 char</div>
+
+          </div>
+          <div class="form-group">
+            <label for="date"><span class="req">* </span> Gender: </label>
+            <input class="form-control" type="text" [(ngModel)]="request.gender" name="gender" id="date" required minlength="4" [maxLength]="8" #gender="ngModel"
+                   placeholder="Enter Gender" />
+            <div *ngIf="gender.touched &&  gender.invalid"></div>
+            <div class="alert alert-danger" *ngIf="gender.errors?.['required']">Description is rquired</div>
+            <div class="alert alert-danger" *ngIf="gender.errors?.['minlength']">Description must have at 4 char</div>
+
+          </div>
+          <div class="form-group">
+            <label for="periode"><span class="req">* </span> monthly_pay: </label>
+            <input class="form-control" type="text" [(ngModel)]="request.monthly_pay" name="mounth" id="periode" required minlength="3" [maxLength]="8" #mounth="ngModel"
+                   placeholder="Enter your monthly payment" />
+            <div *ngIf="mounth.touched &&  gender.invalid"></div>
+            <div class="alert alert-danger" *ngIf="mounth.errors?.['required']">Monthly-pay is rquired</div>
+            <div class="alert alert-danger" *ngIf="mounth.errors?.['minlength']">Monthly-pay must have at 6 char</div>
+
+
+          </div>
+
+          <div class="form-group">
+            <label for="periodeee"><span class="req">* </span> Term-Loan: </label>
+            <input class="form-control" type="text" [(ngModel)]="request.term_loan" name="term" id="periodeee" required minlength="1" [maxLength]="2" #term="ngModel"
+                   placeholder="Enter your Term-Loan " />
+
+            <div *ngIf="term.touched &&  term.invalid"></div>
+            <div class="alert alert-danger" *ngIf="term.errors?.['required']">Term-loan is rquired</div>
+            <div class="alert alert-danger" *ngIf="term.errors?.['minlength']">Term-loan must have at 1 char</div>
+          </div>
+
+          <div class="form-group">
+            <label for="periodee"><span class="req">* </span> Start-Repayment: </label>
+            <input class="form-control" type="text" [(ngModel)]="request.start_repayment" name="start" id="periodee" required minlength="10" [maxLength]="10" #start="ngModel"
+                     placeholder="Enter your Start Repayment" />
+            <div *ngIf="start.touched &&  start.invalid"></div>
+            <div class="alert alert-danger" *ngIf="start.errors?.['required']">Start-Repayment is rquired</div>
+            <div class="alert alert-danger" *ngIf="start.errors?.['minlength']">Start-Repayment must have at 1 char</div>
+          </div>
+
+
+          <div class="form-group">
+            <input class="btn btn-success" type="submit" name="submit_reg" value="Register" [disabled]="form.invalid" (click)="addRequest(request)">
+          </div>
+        </fieldset>
+      </form><!-- ends register form -->
+      <!-- second for to fiter user-->
+    </div><!-- ends col-6 -->
+
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+
+

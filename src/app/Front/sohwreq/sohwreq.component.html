@@ -1,0 +1,130 @@
+<app-navfront></app-navfront>
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/finance.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center">
+
+    <h2>Show Request</h2>
+    <ol>
+      <li><a href="index.html" [routerLink]="['/front-home']">Home</a></li>
+      <li><a href="index.html" [routerLink]="['/add-demand']">Go Back</a></li>
+
+
+    </ol>
+
+  </div>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+    <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+      <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+        <li data-filter=".filter-product">
+          <h1>Show Your List For Request</h1>
+        </li>
+      </ul>
+
+      <div class="table-wrapper">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Gender</th>
+            <th>Monthly-Pay</th>
+            <th>Term-Loan</th>
+            <th>Start-Repayment</th>
+            <th>Check Your Loan</th>
+            <th>Financial Report</th>
+
+          </tr>
+          </thead>
+          <tbody>
+
+
+          <tr *ngFor='let u of listRequests'>
+
+            <td>{{u.request_date}}</td>
+            <td>{{u.amount_req}}</td>
+            <td>{{u.description}}</td>
+            <td>{{u.gender}}</td>
+            <td>{{u.monthly_pay}}</td>
+            <td>{{u.term_loan}}</td>
+            <td>{{u.start_repayment}}</td>
+            <td> <button class="btn btn-primary" (click)="check(u.id_request)" >Check</button></td>
+            <td> <button class="btn btn-pinterest" (click)="financeRapport(u.id_request)" >View</button></td>
+
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr>
+
+      <div *ngFor="let s of loan" >
+        <h1 *ngIf="showResultButton">{{loan}}</h1>
+      </div>
+
+
+
+      <div class="table-wrapper text-center mx-auto float-right">
+
+        <table class="table table-bordered" id="amortization-table" *ngIf="showReportButton">
+          <tr div class="table-wrapper text-center mx-auto float-right" *ngIf="finance" >
+
+
+          <thead>
+
+            <tr>
+            <th colspan="5"><h2>tableau d'amortissement</h2></th>
+            </tr>
+            <tr>
+
+            <th>year</th>
+            <th>capitalRemaining</th>
+            <th>principal</th>
+            <th>interest</th>
+            <th>annuity</th>
+
+          </tr>
+
+          </thead>
+          <tbody>
+
+
+           <tr *ngFor="let s of finance">
+
+            <td>{{s.year}}</td>
+            <td>{{s.capitalRemaining}}</td>
+            <td>{{s.principal}}</td>
+            <td>{{s.interest}}</td>
+            <td>{{s.annuity}}</td>
+           </tr>
+
+           <tr>
+             <td colspan="5">
+               <button class="btn btn-primary" (click)="downloadTable(finance)">Upload</button>
+             </td>
+           </tr>
+
+
+
+          </tbody>
+        </table>
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+</section>

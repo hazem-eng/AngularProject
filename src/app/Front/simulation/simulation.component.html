@@ -1,0 +1,77 @@
+
+<app-navfront></app-navfront>
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/finance.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center">
+
+    <h2>Our Offers</h2>
+    <ol>
+      <li><a href="index.html" [routerLink]="['/front-home']">Home</a></li>
+
+      <li><a href="index.html" [routerLink]="['/offer']">Offer</a></li>
+    </ol>
+
+  </div>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+
+    <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+
+      <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+
+        <li data-filter=".filter-product"><h1>Simulation</h1></li>
+
+      </ul><!-- End Portfolio Filters -->
+
+      <div class="table-container">
+
+          <div class="body table-responsive">
+
+            <form class="search-form" (submit)="findMatchingOffer()">
+              <label for="amount">Amount:</label>
+              <input type="number" id="amount" [(ngModel)]="amount" name="amount">
+              <label for="repaymentPeriod">Repayment Period:</label>
+              <input type="text" id="repaymentPeriod" [(ngModel)]="repayment" name="repaymentPeriod">
+              <button type="submit">Search</button>
+            </form>
+
+            <div class="offer-list">
+              <div *ngFor='let u of listOffers' class="offer-item">
+                <!-- offer content here -->
+                <div class="offer-item">
+                  <h3>{{ u.credit }}</h3>
+                  <p>Max amount: {{ u.max_amount }}</p>
+                  <p>Min amount: {{ u.min_amount }}</p>
+                  <p>Interest rate: {{ u.interest_rate }}</p>
+                  <p>Created on: {{ u.date_creation }}</p>
+                  <p>Repayment period: {{ u.repayment_period }}</p>
+
+                  <button routerLink="/add-demand" class="btn btn-primary">Demande</button>
+
+            <!-- Afficher la liste des statistiques des offres -->
+
+          </div>
+      </div>
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section><!-- End Portfolio Section -->
+
+
+
+

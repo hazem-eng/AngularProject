@@ -1,0 +1,55 @@
+<div class="table-container">
+  <h2>Liste For Requests:</h2>
+  <table class="table table-striped-columns" class="table-smal">
+    <div class="body table-responsive">
+
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Gender</th>
+          <th>Monthly-Pay</th>
+          <th>Term-Loan</th>
+          <th>Start-Repayment</th>
+          <th>delete</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr *ngFor='let u of listRequests'>
+          <th scope="row">{{u.id_request}}</th>
+          <td>{{u.request_date}}</td>
+          <td>{{u.amount_req}}</td>
+          <td>{{u.description}}</td>
+          <td>{{u.gender}}</td>
+          <td>{{u.monthly_pay}}</td>
+          <td>{{u.term_loan}}</td>
+          <td>{{u.start_repayment}}</td>
+
+          <td> <div class="form-group">
+            <input class="btn btn-danger" type="submit" name="submit_reg" value="delete" (click)="deleteRequest(u.id_request)">
+          </div></td>
+
+
+
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </table>
+  <div *ngFor="let item of items | paginate: { itemsPerPage: 10, currentPage: page }">
+    {{ item }}
+  </div>
+  <pagination-controls [(ngModel)]="page"></pagination-controls>
+
+
+
+</div>

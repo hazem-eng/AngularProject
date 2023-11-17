@@ -1,0 +1,92 @@
+/* Style de la table */
+
+
+/* Style de la tête de la table */
+thead {
+  background-color: #f0f0f0;
+  color: #fff;
+}
+.table-container {
+  margin: 0 auto; /* centrer horizontalement */
+  max-width: 800px; /* limiter la largeur pour éviter que le tableau ne devienne trop large */
+}
+
+/* Style des cellules de la table */
+
+
+
+
+/* Style des cellules de la tête de la table */
+
+
+/* Style des boutons de suppression */
+.btn-primary {
+  color: #6a1a21;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  color: #f0f0f0;
+  background-color: #c8cbcf;
+  border-color: #bd2130;
+}
+#chart {
+  max-width: 380px;
+  margin: 35px auto;
+  padding: 0;
+}
+.table-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.table-wrapper table thead th {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+}
+
+.table-wrapper table tbody th,
+.table-wrapper table tbody td {
+  padding: 12px;
+  font-size: 14px;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.table-wrapper table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.table-wrapper.zoomed table tbody th,
+.table-wrapper.zoomed table tbody td {
+  font-size: 18px;
+}
+
+.table-wrapper.zoomed table tbody tr:hover {
+  background-color: #e8e8e8;
+}
+
+
+
+
+
+
+
+
+
+
+

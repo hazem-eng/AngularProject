@@ -1,0 +1,59 @@
+<div class="table-container">
+<h2>Liste D'Offers-Credits:</h2>
+<table class="table table-striped-columns" class="table-smal">
+<div class="body table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>credit</th>
+      <th>max_amount</th>
+      <th>min_amount</th>
+      <th>interest_rate</th>
+      <th>date_creation</th>
+      <th>repayment_period</th>
+      <th>delete</th>
+      <th>update</th>
+      <th>Statistic</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor='let u of listOffers'>
+      <th scope="row">{{u.id_offer}}</th>
+      <td>{{u.credit}}</td>
+      <td>{{u.max_amount}}</td>
+      <td>{{u.min_amount}}</td>
+      <td>{{u.interest_rate}}</td>
+      <td>{{u.date_creation}}</td>
+      <td>{{u.repayment_period}}</td>
+
+      <td> <div class="form-group">
+        <input class="btn btn-danger" type="submit" name="submit_reg" value="delete" (click)="deleteOffer(u.id_offer)">
+      </div></td>
+
+     <td> <div class="form-group">
+        <button routerLink="/update" class="btn btn-warning">update</button>
+      </div></td>
+      <td> <button class="btn btn-primary" (click)="Onsubmint(u.id_offer)">statistic</button></td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+</table>
+  <h2>Statistiques des offres de crédit</h2>
+  <!--<div *ngIf="statistics">
+    <h1>Offre ID: {{ statistics.id_offer }}</h1>
+    <h1>Nombre de demandes acceptées: {{ statistics.acceptedRequests }}</h1>
+    <h1>Nombre de demandes refusées: {{ statistics.rejectedRequests }}</h1>
+    <h1>Nombre de demandes en attente: {{ statistics.pendingRequests }}</h1>
+  </div> -->
+  <div id="chart" *ngIf="statistics">
+    <apx-chart
+      [series]=[statistics.acceptedRequests,statistics.rejectedRequests,statistics.pendingRequests]
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [responsive]="chartOptions.responsive"
+    ></apx-chart>
+  </div>
+</div>
